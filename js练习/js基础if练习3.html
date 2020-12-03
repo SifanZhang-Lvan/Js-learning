@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  输入三个整数分别存入变量1，2，3
+  对他们进行排序，并且从小到大输出
+
+  <script>
+    var n1 = +prompt("input number1");
+    var n2 = +prompt("input number2");
+    var n3 = +prompt("input number3");
+//n1最小
+    if(n1 < n2 && n1 < n3){
+      if(n2 < n3){
+        alert(n1 + "," + n2 +"," + n3);
+      }
+      else{
+        alert(n1 + "," + n3 +"," + n2);
+      }
+    }
+    //n2最小
+    else if(n2 < n3 && n2 < n1){
+      if(n1 < n3){
+        alert(n2 + "," + n1 +"," + n3);
+      }
+      else{ 
+        alert(n2 + "," + n3 +"," + n1);
+      }
+    }
+    //n3最小
+    else if(n3 < n1 && n3 < n2){
+      if(n1 < n2){
+        alert(n3 + "," + n1 +"," + n2);
+      }
+      else{
+        alert(n3 + "," + n2 +"," + n1);
+      }
+    }
+ 
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
