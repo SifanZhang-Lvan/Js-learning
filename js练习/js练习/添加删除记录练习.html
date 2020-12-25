@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function() {
+      var de = document.getElementsByTagName("a")
+      for (var i = 0; i < de.length; i++) {
+        de[i].onclick = function() {
+          //点击超链接删除
+          //获取当前tr
+          var tr = this.parentNode.parentNode;
+          //删除前弹出一个提示框
+          var flag = confirm("确认删除吗？")
+          //删除tr
+          if(flag){
+
+            tr.parentNode.removeChild(tr);
+          }
+          return false;
+
+        }
+      }
+
+      var sub = document.getElementsByClassName("submit")[0];
+      sub.onclick = function(){
+        var name = document.getElementsByClassName("name")[0].value;
+        var email = document.getElementsByClassName("email")[0].value;
+        var salary = document.getElementsByClassName("salary")[0].value;
+        //创建一个tr
+        var tr = document.createElement("tr");
+        // //创建四个td
+        // var nametd = document.createElement("td");
+        // var emailtd = document.createElement("td");
+        // var salarytd = document.createElement("td");
+        // var atd = document.createElement("td");
+        // //创建a元素
+        // var a = document.createElement("a");
+        // a.href = ""
+        // //创建文本节点
+        // var nametext = document.createTextNode(name);
+        // var emailtext = document.createTextNode(email);
+        // var salarytext = document.createTextNode(salary);
+        // var deletetext = document.createTextNode("Delete");
+        // //将文本添加到td中
+        // nametd.appendChild(nametext);
+        // emailtd.appendChild(emailtext);
+        // salarytd.appendChild(salarytext);
+        // //a添加文本
+        // a.appendChild(deletetext);
+        // //a添加到td
+        // atd.appendChild(a);
+
+        
+        // //td添加到tr中
+        // tr.appendChild(nametd);
+        // tr.appendChild(emailtd);
+        // tr.appendChild(salarytd);
+        // tr.appendChild(atd);
+
+        //设置tr中内容
+        tr.innerHTML = "<td>" + name + "</td>" + "<td>" + email + "</td>" + "<td>" + salary + "</td>" + "<td><a href=''>delete</a></td>";
+
+        //获取table
+        var table = document.getElementsByClassName("table")[0];
+        //tr添加到table中
+        table.appendChild(tr);
+        var de = document.getElementsByTagName("a")
+        for (var i = 0; i < de.length; i++) {
+          de[i].onclick = function() {
+            //点击超链接删除
+            //获取当前tr
+            var tr = this.parentNode.parentNode;
+            //删除前弹出一个提示框
+            var flag = confirm("确认删除吗？")
+            //删除tr
+            if(flag){
+
+              tr.parentNode.removeChild(tr);
+            }
+            return false;
+
+        }
+      }
+      }
+      
+
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <div>
+      <table border="1" class="table">
+        <tr>
+          <td>Name</td>
+          <td>Name</td>
+          <td>Name</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td><a href="" class="delete">Delete</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2</td>
+          <td>2</td>
+          <td><a href="" class="delete">Delete</a></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>3</td>
+          <td>3</td>
+          <td><a href="" class="delete">Delete</a></td>
+        </tr>    
+      </table>
+    </div>
+    <div class="add">
+      <p>添加新员工</p>
+      name: <input type="text" class="name">
+      email: <input type="text" class="email">
+      salary: <input type="text" class="salary">
+      <button type="submit" class="submit">submit</button> 
+    </div>
+  </div>
+</body>
+</html>
