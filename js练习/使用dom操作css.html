@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
+    #box{
+      width: 100px;
+      height: 100px;
+      background-color:red;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      var c = document.getElementById("cl");
+      //为按钮绑定单击响应函数
+      cl.onclick = function() {
+        var box = document.getElementById("box");
+        //修改box样式
+        // 通过js修改元素样式：
+        //   语法：元素.style.样式名 = 样式值
+        // 注意：如果css得样式中含有-，
+        //         这种名称在js中是不合法的比如background-color
+        //         需要将这种样式名修改为驼峰命名法，
+        //         去掉-，然后将-后的字母大写
+
+        // 我们通过style属性设置的样式，
+        //   而内联样式有较高的优先级，所以通过js修改的样式往往会立即显示
+
+        // 但是如图在样式中写了！important，则此时样式会有最高的优先级，
+        //  即使通过js也不能覆盖该样式，此时会导致js修改样式失效
+        //  所以尽量不要为样式添加！important
+
+        // 通过style样式读取和设置的都是内联样式
+        box.style.height = "200px";
+        box.style.width = "200px";
+        box.style.backgroundColor = "yellow";
+      }
+    }
+  </script>
+</head>
+<body>
+  <button id="cl">click</button>
+  <div id="box"></div>
+</body>
+</html>

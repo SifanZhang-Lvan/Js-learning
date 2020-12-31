@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
+    #box{
+      width: 100px;
+      height: 100px;
+      background-color:red;
+      position: absolute;
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      // 拖拽box元素
+      //   拖拽的流程
+      //     1.当鼠标在被拖拽元素按下时，开始拖拽 onmousedown
+      //     2.当鼠标移动时被拖拽元素跟随鼠标移动 onmousemove
+      //     3.当鼠标松开时，被拖拽元素固定在当前位置 onmouseup
+
+      // 获取box
+      var box = document.getElementById("box");
+      // 为box绑定一个鼠标按下事件
+      // 当鼠标在被拖拽元素按下时，开始拖拽onmousedown
+      box.onmousedown = function(e) {
+        //div的偏移量 鼠标.clientX - 元素.offsetLeft
+        //div的偏移量 鼠标.clientY - 元素.offsetTop
+        var ol = e.clientX - box.offsetLeft;
+        var ot = e.clientY - box.offsetTop;
+
+        //为document绑定一个onmousemove事件
+        document.onmousemove = function(event) {
+          // 获取鼠标的光标
+          var left = event.clientX - ol;
+          var top = event.clientY - ot;
+          // 修改box的位置
+          box.style.left = left + "px";
+          box.style.top = top + "px";
+        }
+      }
+      // 当鼠标松开时，被拖拽元素固定在当前位置 onmouseup
+      box.onmouseup = function() {
+        //取消事件
+        document.onmousemove = null;
+      }
+
+    }
+  </script>.
+</head>
+<body>
+  <div id="box"></div>
+  
+</body>
+</html>

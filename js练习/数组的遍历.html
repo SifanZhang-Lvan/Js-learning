@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+//创建一个数组
+var arr = [111,222,333];
+//所谓遍历数组，就是将数组中所有的元素都取出来
+for(var i=0; i<arr.length; i++){
+  console.log(arr[i]);
+}
+
+// 一般使用for循环去遍历数组，
+// JS中还为我们提供了一个方法，用来遍历数组
+// forEach()
+            // 只支持IE8以上
+
+var arra = [111,222,333,444]
+// forEach()方法需要一个函数作为参数
+// 像这种函数，由我们创建但是不是由我们调用，我们称为回调函数
+// 数组中有几个元素就会执行几次，每次执行时，浏览器会将遍历到的元素以实参的形式传递进来，我们可以定义形参，来读取这些内容
+// 浏览器会在回调函数中传递三个参数：
+// 第一个参数，就是当前遍历的元素
+// 第二个参数1，是当前遍历元素的索引
+// 第三个参数，是当前遍历的数组
+
+arra.forEach(function(value, index, arr) {
+  console.log(value, index, arr);
+})
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
